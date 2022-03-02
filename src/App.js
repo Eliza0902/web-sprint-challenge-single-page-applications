@@ -4,7 +4,7 @@ import Home from './Homepage'
 import PizzaForm from "./Formpage";
 import schema from './FormValidation';
 import * as yup from 'yup';
-console.log(PizzaForm);
+
 const initialFormValues = {
  choiceOfSize: '',
  choiceOfSauce: '',
@@ -16,14 +16,17 @@ const initialFormValues = {
  name: '',
 }
 const initialFormErrors = {
-  name: ''
+  name: '',
+  choiceOfSauce: '',
+  specialInstruction:'',
+  choiceOfSize: '',
 }
 
 const initialOrders = []
 const initialDisable = true;
 
 const App = (props) => {
-  const [orders, setOrders] = useState(initialOrders);
+  // const [orders, setOrders] = useState(initialOrders);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disable, setDisable] = useState(initialDisable);
