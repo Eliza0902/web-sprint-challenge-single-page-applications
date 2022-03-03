@@ -1,23 +1,23 @@
-import * as yup from 'yup';
+import * as Yup from 'yup';
 
-const formSchema = yup.object().shape({
+const formSchema = Yup.object().shape({
  
-    choiceOfSize: yup
+    choiceOfSize: Yup
     .string()
     .oneOf(['Small', 'Medium','Large'], 'Gotta Pick one!'),
     
-    choiceOfSauce: yup
+    choiceOfSauce: Yup
     .string()
     .oneOf(['red','white','none'],'Gotta Pick One!'),
-    pepperoni : yup.boolean,
-    sausage: yup.boolean,
-    olives: yup.boolean,
-    peppers: yup.boolean,
-    specialInstruction: yup
+    pepperoni : Yup.boolean(),
+    sausage: Yup.boolean(),
+    olives: Yup.boolean(),
+    peppers: Yup.boolean(),
+    specialInstructions: Yup
     .string()
     .trim()
     .min(0),
-    name: yup
+    name: Yup
     .string()
     .trim()
     .required("name must be at least 2 characters")

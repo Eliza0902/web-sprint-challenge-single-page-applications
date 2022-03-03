@@ -3,22 +3,22 @@ import React from "react";
 export default function PizzaForm(props) {
 
 
-  const { values, submit, change, disable, errors } = props;
+  const { values, submit, change, disabled, errors } = props;
   const onSubmit = (evt) => {
     evt.preventDefault();
     submit();
   };
 
-  const onChange = (evt) => {
+  const onChange = evt => {
     const { name, value, type, checked } = evt.target;
     const valueToUse = type === "checkbox" ? checked : value;
     change(name, valueToUse);
   };
   return (
     <form id="pizza-form" onSubmit={onSubmit}>
-      <div id="pizza-submit">
+      <div >
         <h2>Build your Pizza!</h2>
-        <button disable={disable}>Submit</button>
+        <button id="order-button" disabled = {disabled}>Submit</button>
       </div>
 
       <div>{errors.name}</div>
@@ -30,8 +30,9 @@ export default function PizzaForm(props) {
           id="name-input"
           value={values.name}
           onChange={onChange}
-          name="Name"
+          name="name"
           type="text"
+          
         />
       </label>
 
@@ -41,7 +42,7 @@ export default function PizzaForm(props) {
           <input id="special-text"
             value={values.specialInstructions}
             onChange={onChange}
-            name="special instructions"
+            name="specialInstructions"
             type="text"
           />
         </label>
@@ -52,12 +53,12 @@ export default function PizzaForm(props) {
           <select id="size-dropdown"
             onChange={onChange}
             value={values.choiceOfSize}
-            name="choice of size"
+            name="choiceOfSize"
           >
             <option value="">- Select an option -</option>
-            <option value="Sm">Small</option>
-            <option value="Med">Medium</option>
-            <option value="Lrg">Large</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
           </select>
         </label>
       </div>
